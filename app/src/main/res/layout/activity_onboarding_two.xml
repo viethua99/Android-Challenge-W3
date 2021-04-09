@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_boarding_two"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_marginTop="@dimen/distance_45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/img_dot_two"
+        app:srcCompat="@drawable/image_boarding_two" />
+
+    <ImageView
+        android:id="@+id/img_dot_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/distance_30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_boarding_two"
+        app:srcCompat="@drawable/image_dot_two" />
+
+    <TextView
+        android:id="@+id/tv_board_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/distance_40dp"
+        android:fontFamily="@font/sofia_pro_medium"
+        android:text="@string/activity_on_boarding_two_title"
+        android:textColor="@color/big_stone"
+        android:textSize="@dimen/size_36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_dot_two" />
+
+    <TextView
+        android:lineSpacingExtra="@dimen/distance_8dp"
+        android:fontFamily="@font/sofia_pro_regular"
+        android:id="@+id/tv_board_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/distance_20dp"
+        android:gravity="center"
+        android:text="@string/activity_on_boarding_two_message"
+        android:textColor="@color/shuttle_gray"
+        android:textSize="@dimen/size_17sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_board_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_board_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_board_title" />
+
+    <ImageButton
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_button"
+        android:src="@drawable/ic_arrow_forward_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_board_message" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners android:radius="4dp"
+        />
+    <solid
+        android:color="@color/white" />
+    <stroke
+        android:width="@dimen/mtrl_textinput_box_stroke_width_default"
+        android:color="@color/mtrl_outlined_stroke_color" />
+
+</shape>

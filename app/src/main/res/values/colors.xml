@@ -5,6 +5,18 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="orange">#FE724C</color>
+    <color name="big_stone">#131A38</color>
+    <color name="shuttle_gray">#616772</color>
+    <color name="dove_gray">#707070</color>
+    <color name="manatee">#9796A1</color>
+    <color name="scarpa_flow">#5B5B5E</color>
+    <color name="nobel">#B3B3B3</color>
+    <color name="bunker">#111719</color>
+    <color name="oxford_blue">#30384F</color>
+    <color name="background_button">#4DFFFFFF</color>
+    <color name="mischka">#D2D5DB</color>
 </resources>

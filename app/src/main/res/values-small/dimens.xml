@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    distances-->
+    <dimen name="distance_200dp">100dp</dimen>
+    <dimen name="distance_180dp">90dp</dimen>
+    <dimen name="distance_100dp">50dp</dimen>
+    <dimen name="distance_90dp">45dp</dimen>
+    <dimen name="distance_80dp">40dp</dimen>
+    <dimen name="distance_72dp">36dp</dimen>
+    <dimen name="distance_60dp">30dp</dimen>
+    <dimen name="distance_56dp">28dp</dimen>
+
+    <dimen name="distance_48dp">24dp</dimen>
+    <dimen name="distance_45dp">23dp</dimen>
+    <dimen name="distance_40dp">20dp</dimen>
+    <dimen name="distance_32dp">16dp</dimen>
+    <dimen name="distance_30dp">15dp</dimen>
+    <dimen name="distance_28dp">14dp</dimen>
+    <dimen name="distance_25dp">17dp</dimen>
+    <dimen name="distance_24dp">12dp</dimen>
+    <dimen name="distance_22dp">11dp</dimen>
+    <dimen name="distance_20dp">10dp</dimen>
+    <dimen name="distance_16dp">8dp</dimen>
+    <dimen name="distance_12dp">5dp</dimen>
+    <dimen name="distance_10dp">5dp</dimen>
+    <dimen name="distance_8dp">4dp</dimen>
+    <dimen name="distance_5dp">3dp</dimen>
+    <dimen name="distance_4dp">2dp</dimen>
+
+
+    <!--    size text-->
+    <dimen name="size_53sp">27sp</dimen>
+    <dimen name="size_45sp">22sp</dimen>
+    <dimen name="size_36.41sp">18sp</dimen>
+    <dimen name="size_36sp">18sp</dimen>
+    <dimen name="size_22sp">11sp</dimen>
+    <dimen name="size_18sp">9sp</dimen>
+    <dimen name="size_17sp">14sp</dimen>
+    <dimen name="size_16sp">8sp</dimen>
+
+    <dimen name="size_15sp">8sp</dimen>
+    <dimen name="size_14sp">7sp</dimen>
+    <dimen name="size_13sp">6sp</dimen>
+
+
+</resources>

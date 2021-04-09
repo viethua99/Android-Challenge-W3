@@ -1,3 +1,54 @@
 <resources>
-    <string name="app_name">Android-Challenge-W3</string>
+    <string name="app_name">Android Challenge W3</string>
+
+    <string name="facebook_button">FACEBOOK</string>
+    <string name="google_button">GOOGLE  </string>
+
+
+    <string name="activity_welcome_title">Welcome to</string>
+    <string name="activity_food_hub">Food hub</string>
+    <string name="activity_welcome_message">Your favourite foods delivered\nfast at your door.</string>
+    <string name="activity_welcome_already_have_account">Already have an account?</string>
+    <string name="activity_welcome_sign_in_underline"><u>Sign In</u></string>
+    <string name="activity_welcome_start_button_message">Start with email or phone</string>
+    <string name="activity_welcome_skip_button">Skip</string>
+
+    <string name="activity_on_boarding_one_title">Browse your menu\nand order directly</string>
+    <string name="activity_on_boarding_one_message">Our app can send you everywhere, even\nspace. For only $2.99 per month</string>
+
+    <string name="activity_on_boarding_two_title">Even to space with\nus! Together</string>
+    <string name="activity_on_boarding_two_message">Our app can send you everywhere, even\nspace. For only $2.99 per month</string>
+
+    <string name="activity_on_boarding_three_title">Pickup delivery at\nyour door</string>
+    <string name="activity_on_boarding_three_message">Our app can send you everywhere, even\nspace. For only $2.99 per month</string>
+
+    <string name="activity_sign_up_title">Sign Up</string>
+    <string name="activity_sign_up_full_name">Full name</string>
+    <string name="activity_sign_up_email">E-mail</string>
+    <string name="activity_sign_up_password">Password</string>
+    <string name="activity_sign_up_full_name_hint">Your full name</string>
+    <string name="activity_sign_up_email_hint">Your E-mail</string>
+    <string name="activity_sign_up_button">Sign Up</string>
+    <string name="activity_sign_up_already_have_account">Already have an account?</string>
+    <string name="activity_sign_up_login">Login</string>
+    <string name="activity_sign_up_sign_up_with">Sign up with</string>
+
+    <string name="activity_sign_in_title">Login</string>
+    <string name="activity_sign_in_email">E-mail</string>
+    <string name="activity_sign_in_email_hint">Your E-mail</string>
+    <string name="activity_sign_in_password">Password</string>
+    <string name="activity_sign_in_forgot_password">Forgot password?</string>
+    <string name="activity_sign_in_login_button">Login</string>
+    <string name="activity_sign_in_dont_have_account">Don\'t have an account?</string>
+    <string name="activity_sign_in_sign_up">Sign Up</string>
+    <string name="activity_sign_in_sign_in_with">Sign in with</string>
+
+    <string name="activity_profile_edit_profile">Edit Profile</string>
+    <string name="activity_profile_full_name">Full name</string>
+    <string name="activity_profile_email">E-mail</string>
+    <string name="activity_profile_phone_number">Phone number</string>
+
+
+
+
 </resources>
