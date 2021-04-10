@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="signUpViewModel"
+            type="com.thesis.android_challenge_w3.model.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -76,6 +78,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_full_name"
                 android:layout_width="match_parent"
+                android:text="@={signUpViewModel.user.fullName}"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sofia_pro_medium"
                 android:hint="@string/activity_sign_up_full_name_hint" />
@@ -96,6 +99,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_email"
+                android:text="@={signUpViewModel.user.email}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sofia_pro_medium"
@@ -120,6 +124,7 @@
                 android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={signUpViewModel.user.password}"
                 android:fontFamily="@font/sofia_pro_medium"
                 android:hint="@string/activity_sign_up_password"
                 android:inputType="textPassword" />
@@ -137,6 +142,7 @@
             android:paddingHorizontal="@dimen/distance_80dp"
             android:paddingVertical="@dimen/distance_10dp"
             android:text="@string/activity_sign_up_button"
+            android:onClick="@{() -> signUpViewModel.signUp()}"
             android:textColor="@color/white"
             android:textSize="@dimen/size_15sp"
             app:backgroundTint="@color/orange"

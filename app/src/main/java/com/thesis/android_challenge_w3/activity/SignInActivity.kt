@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.thesis.android_challenge_w3.R
 import com.thesis.android_challenge_w3.databinding.ActivitySignInBinding
 import com.thesis.android_challenge_w3.model.SignInViewModel
-import com.thesis.android_challenge_w3.model.SignUpViewModel
 import com.thesis.android_challenge_w3.store.DataStore
 
 class SignInActivity : AppCompatActivity() {
