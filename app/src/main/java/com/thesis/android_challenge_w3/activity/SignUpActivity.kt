@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import com.thesis.android_challenge_w3.databinding.ActivitySignUpBinding
 import com.thesis.android_challenge_w3.store.DataStore
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.thesis.android_challenge_w3.model.SignUpViewModel
 
 
 /**
@@ -17,11 +19,13 @@ import android.widget.Toast
 
 class SignUpActivity: AppCompatActivity(){
     private lateinit var binding : ActivitySignUpBinding
+    private lateinit var viewModel: SignUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_sign_up)
+        viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
 
         binding.apply {
             btnSignIn.setOnClickListener {
@@ -29,10 +33,10 @@ class SignUpActivity: AppCompatActivity(){
             }
 
             btnSignUp.setOnClickListener {
-                val fullName = edtFullName.text.toString()
-                val email = edtEmail.text.toString()
-                val password = edtPassword.text.toString()
-                if(DataStore.instance.isSignUpSucceed(fullName,email,password)){
+                viewModel.user.fullName = edtFullName.text.toString()
+                viewModel.user.email = edtEmail.text.toString()
+                viewModel.user.password = edtPassword.text.toString()
+                if(DataStore.instance.isSignUpSucceed(viewModel.user.fullName,viewModel.user.email,viewModel.user.password)){
                     Toast.makeText(this@SignUpActivity,"Sign Up Successful",Toast.LENGTH_SHORT).show()
                     startLoginActivity()
                 } else {

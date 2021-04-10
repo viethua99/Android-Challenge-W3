@@ -55,4 +55,6 @@ dependencies {
 
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:2.1.0'
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 }
