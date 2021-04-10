@@ -4,9 +4,11 @@ import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import com.thesis.android_challenge_w3.R
 import com.thesis.android_challenge_w3.databinding.DialogEditInfoBinding
+
 
 class EditDialog(context: Context, private val title: String, private val hint: String, private val initData:String) :
     AlertDialog(context) {
@@ -22,6 +24,8 @@ class EditDialog(context: Context, private val title: String, private val hint: 
             false
         )
         setContentView(binding.root)
+
+
         binding.apply {
             tvDialogTitle.text = title
             edtBase.setText(initData)

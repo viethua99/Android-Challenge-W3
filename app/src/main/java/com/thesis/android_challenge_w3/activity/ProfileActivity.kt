@@ -76,6 +76,7 @@ class ProfileActivity : AppCompatActivity() {
         val dialog = EditDialog(this,title,textHint,initData)
         dialog.setEditDialogCallback(editDialogCallback)
         dialog.show()
+        dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM)
     }
 
     private fun showToastMessage(message:String){
