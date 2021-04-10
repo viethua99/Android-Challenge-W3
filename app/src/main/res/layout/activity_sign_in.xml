@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <variable
+            name="signInViewModel"
+            type="com.thesis.android_challenge_w3.model.SignInViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -77,6 +82,7 @@
                 android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={signInViewModel.email}"
                 android:fontFamily="@font/sofia_pro_medium"
                 android:hint="@string/activity_sign_in_email_hint" />
 
@@ -98,6 +104,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_password"
                 android:layout_width="match_parent"
+                android:text="@={signInViewModel.password}"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sofia_pro_medium"
                 android:hint="@string/activity_sign_in_password" />
@@ -130,6 +137,7 @@
             android:text="@string/activity_sign_in_login_button"
             android:textColor="@color/white"
             android:textSize="@dimen/size_15sp"
+            android:onClick="@{()->signInViewModel.onClickSignIn()}"
             app:backgroundTint="@color/orange"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
