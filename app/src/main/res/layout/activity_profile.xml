@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="user"
-            type="com.thesis.android_challenge_w3.model.User" />
+            name="profileViewModel"
+            type="com.thesis.android_challenge_w3.model.ProfileViewModel" />
     </data>
     <ScrollView
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sofia_pro_semi_bold"
-                android:text="@{user.fullName}"
+                android:text="@{profileViewModel.user.fullName}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +111,7 @@
                     android:fontFamily="@font/sofia_pro_medium"
                     android:gravity="center_vertical"
                     android:padding="16dp"
-                    android:text="@{user.fullName}"
+                    android:text="@{profileViewModel.user.fullName}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_17sp"
 
@@ -148,7 +148,7 @@
                     android:fontFamily="@font/sofia_pro_medium"
                     android:gravity="center_vertical"
                     android:padding="16dp"
-                    android:text="@{user.email}"
+                    android:text="@{profileViewModel.user.email}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_17sp"
 
@@ -187,7 +187,7 @@
                     android:fontFamily="@font/sofia_pro_medium"
                     android:gravity="center_vertical"
                     android:padding="16dp"
-                    android:text="@{user.phoneNumber}"
+                    android:text="@{profileViewModel.user.phoneNumber}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_17sp" />
             </com.google.android.material.card.MaterialCardView>

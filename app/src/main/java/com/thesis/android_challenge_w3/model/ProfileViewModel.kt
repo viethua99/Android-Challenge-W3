@@ -2,11 +2,10 @@ package com.thesis.android_challenge_w3.model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.thesis.android_challenge_w3.model.User
 
 
 class ProfileViewModel : ViewModel() {
-    var user : MutableLiveData<User> = MutableLiveData()
+    var user = MutableLiveData<User>()
     init{
         user.value= User()
     }

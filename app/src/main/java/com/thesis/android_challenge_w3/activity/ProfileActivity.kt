@@ -25,6 +25,7 @@ class ProfileActivity : AppCompatActivity() {
         )
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
         setupViewModel()
+
         binding.apply {
             val user = DataStore.instance.currentUser
             user?.let {
@@ -65,7 +66,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setupViewModel(){
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        binding.user = viewModel.user.value
+        binding.profileViewModel = viewModel
         viewModel.user.observe(this , Observer{ user ->
             binding.tvFullName.text = user.fullName
             binding.tvUserName.text = user.fullName
