@@ -3,257 +3,265 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="signUpViewModel"
             type="com.thesis.android_challenge_w3.activity.signup.SignUpViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_sign_in"
-        android:padding="@dimen/distance_20dp">
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/tv_sign_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_80dp"
-            android:fontFamily="@font/sofia_pro_semi_bold"
-            android:text="@string/activity_sign_up_title"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size_36.41sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <TextView
-            android:id="@+id/tv_full_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_20dp"
-            android:fontFamily="@font/sofia_pro_regular"
-            android:text="@string/activity_sign_up_full_name"
-            android:textColor="@color/manatee"
-            android:textSize="@dimen/size_16sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_sign_up"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sign_up" />
-
-        <TextView
-            android:id="@+id/tv_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_20dp"
-            android:fontFamily="@font/sofia_pro_regular"
-            android:text="@string/activity_sign_up_email"
-            android:textColor="@color/manatee"
-            android:textSize="@dimen/size_16sp"
-            app:layout_constraintStart_toStartOf="@+id/til_email"
-            app:layout_constraintTop_toBottomOf="@+id/til_full_name" />
-
-        <TextView
-            android:id="@+id/tv_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_20dp"
-            android:fontFamily="@font/sofia_pro_regular"
-            android:text="@string/activity_sign_up_password"
-            android:textColor="@color/manatee"
-            android:textSize="@dimen/size_16sp"
-            app:layout_constraintStart_toStartOf="@+id/til_password"
-            app:layout_constraintTop_toBottomOf="@+id/til_email" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_full_name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_10dp"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_full_name">
+            android:layout_height="match_parent"
+            android:background="@drawable/background_sign_in"
+            android:padding="@dimen/distance_20dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_full_name"
-                android:layout_width="match_parent"
-                android:text="@={signUpViewModel.user.fullName}"
+            <TextView
+                android:id="@+id/tv_sign_up"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sofia_pro_medium"
-                android:hint="@string/activity_sign_up_full_name_hint" />
+                android:layout_marginTop="@dimen/distance_80dp"
+                android:fontFamily="@font/sofia_pro_semi_bold"
+                android:text="@string/activity_sign_up_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_36.41sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/tv_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_20dp"
+                android:fontFamily="@font/sofia_pro_regular"
+                android:text="@string/activity_sign_up_full_name"
+                android:textColor="@color/manatee"
+                android:textSize="@dimen/size_16sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_sign_up"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sign_up" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_10dp"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_email">
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_20dp"
+                android:fontFamily="@font/sofia_pro_regular"
+                android:text="@string/activity_sign_up_email"
+                android:textColor="@color/manatee"
+                android:textSize="@dimen/size_16sp"
+                app:layout_constraintStart_toStartOf="@+id/til_email"
+                app:layout_constraintTop_toBottomOf="@+id/til_full_name" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_email"
-                android:text="@={signUpViewModel.user.email}"
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_20dp"
+                android:fontFamily="@font/sofia_pro_regular"
+                android:text="@string/activity_sign_up_password"
+                android:textColor="@color/manatee"
+                android:textSize="@dimen/size_16sp"
+                app:layout_constraintStart_toStartOf="@+id/til_password"
+                app:layout_constraintTop_toBottomOf="@+id/til_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_full_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sofia_pro_medium"
-                android:hint="@string/activity_sign_up_email_hint" />
+                android:layout_marginTop="@dimen/distance_10dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_full_name">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:hint="@string/activity_sign_up_full_name_hint"
+                    android:text="@={signUpViewModel.user.fullName}" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_10dp"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_password"
-            app:passwordToggleEnabled="true">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_password"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={signUpViewModel.user.password}"
+                android:layout_marginTop="@dimen/distance_10dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:hint="@string/activity_sign_up_email_hint"
+                    android:text="@={signUpViewModel.user.email}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_10dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_password"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:hint="@string/activity_sign_up_password"
+                    android:inputType="textPassword"
+                    android:text="@={signUpViewModel.user.password}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_40dp"
+                android:background="@drawable/rounded_button"
                 android:fontFamily="@font/sofia_pro_medium"
-                android:hint="@string/activity_sign_up_password"
-                android:inputType="textPassword" />
+                android:onClick="@{() -> signUpViewModel.signUp()}"
+                android:paddingHorizontal="@dimen/distance_80dp"
+                android:paddingVertical="@dimen/distance_10dp"
+                android:text="@string/activity_sign_up_button"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_15sp"
+                app:backgroundTint="@color/orange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_password" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/distance_20dp"
+                android:layout_marginTop="@dimen/distance_20dp"
+                android:layout_marginEnd="@dimen/distance_60dp"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:lines="2"
+                android:text="@string/activity_sign_up_already_have_account"
+                android:textColor="@color/dove_gray"
+                android:textSize="@dimen/size_14sp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_sign_up"
+                app:layout_constraintStart_toStartOf="@+id/btn_sign_up"
+                app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" />
 
+            <TextView
+                android:id="@+id/btn_sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/distance_8dp"
+                android:layout_marginTop="@dimen/distance_20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:lines="2"
+                android:text="@string/activity_sign_up_login"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/size_14sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_have_account"
+                app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_sign_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/distance_40dp"
-            android:background="@drawable/rounded_button"
-            android:fontFamily="@font/sofia_pro_medium"
-            android:paddingHorizontal="@dimen/distance_80dp"
-            android:paddingVertical="@dimen/distance_10dp"
-            android:text="@string/activity_sign_up_button"
-            android:onClick="@{() -> signUpViewModel.signUp()}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size_15sp"
-            app:backgroundTint="@color/orange"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_password" />
+            <TextView
+                android:id="@+id/tv_sign_up_with"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:text="@string/activity_sign_up_sign_up_with"
+                android:textColor="@color/scarpa_flow"
+                android:textSize="@dimen/size_14sp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_facebook"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_have_account"
+                app:layout_constraintVertical_bias="0.8" />
 
-        <TextView
-            android:id="@+id/tv_have_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/distance_20dp"
-            android:layout_marginTop="@dimen/distance_20dp"
-            android:layout_marginEnd="@dimen/distance_60dp"
-            android:fontFamily="@font/sofia_pro_medium"
-            android:lines="2"
-            android:text="@string/activity_sign_up_already_have_account"
-            android:textColor="@color/dove_gray"
-            android:textSize="@dimen/size_14sp"
-            app:layout_constraintEnd_toEndOf="@+id/btn_sign_up"
-            app:layout_constraintStart_toStartOf="@+id/btn_sign_up"
-            app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" />
+            <View
+                android:id="@+id/view_left_bar"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginEnd="@dimen/distance_20dp"
+                android:background="@color/nobel"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_sign_up_with"
+                app:layout_constraintEnd_toStartOf="@+id/tv_sign_up_with"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_sign_up_with" />
 
-        <TextView
-            android:id="@+id/btn_sign_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/distance_8dp"
-            android:layout_marginTop="@dimen/distance_20dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:fontFamily="@font/sofia_pro_medium"
-            android:lines="2"
-            android:text="@string/activity_sign_up_login"
-            android:textColor="@color/orange"
-            android:textSize="@dimen/size_14sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_have_account"
-            app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" />
+            <View
+                android:id="@+id/view_right_bar"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="@dimen/distance_20dp"
+                android:background="@color/nobel"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_sign_up_with"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_sign_up_with"
+                app:layout_constraintTop_toTopOf="@+id/tv_sign_up_with" />
 
-        <TextView
-            android:id="@+id/tv_sign_up_with"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sofia_pro_medium"
-            android:text="@string/activity_sign_up_sign_up_with"
-            android:textColor="@color/scarpa_flow"
-            android:textSize="@dimen/size_14sp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_facebook"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_have_account"
-            app:layout_constraintVertical_bias="0.8" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_facebook"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:paddingHorizontal="@dimen/distance_30dp"
+                android:paddingVertical="@dimen/distance_10dp"
+                android:text="@string/facebook_button"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:icon="@drawable/icon_facebook"
+                app:iconGravity="textStart"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_google"
+                app:layout_constraintStart_toStartOf="@+id/view_left_bar" />
 
-        <View
-            android:id="@+id/view_left_bar"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:layout_marginEnd="@dimen/distance_20dp"
-            android:background="@color/nobel"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_sign_up_with"
-            app:layout_constraintEnd_toStartOf="@+id/tv_sign_up_with"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_sign_up_with" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_google"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/distance_10dp"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:paddingHorizontal="@dimen/distance_30dp"
+                android:paddingVertical="@dimen/distance_10dp"
+                android:text="@string/google_button"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:icon="@drawable/icon_google"
+                app:iconGravity="textStart"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/view_right_bar"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/btn_facebook" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:id="@+id/view_right_bar"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:layout_marginStart="@dimen/distance_20dp"
-            android:background="@color/nobel"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_sign_up_with"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_sign_up_with"
-            app:layout_constraintTop_toTopOf="@+id/tv_sign_up_with" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_facebook"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:fontFamily="@font/sofia_pro_medium"
-            android:paddingHorizontal="@dimen/distance_30dp"
-            android:paddingVertical="@dimen/distance_10dp"
-            android:text="@string/facebook_button"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/white"
-            app:icon="@drawable/icon_facebook"
-            app:iconGravity="textStart"
-            app:iconTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn_google"
-            app:layout_constraintStart_toStartOf="@+id/view_left_bar" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_google"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/distance_10dp"
-            android:background="@drawable/rounded_button"
-            android:fontFamily="@font/sofia_pro_medium"
-            android:paddingHorizontal="@dimen/distance_30dp"
-            android:paddingVertical="@dimen/distance_10dp"
-            android:text="@string/google_button"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/white"
-            app:icon="@drawable/icon_google"
-            app:iconGravity="textStart"
-            app:iconTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/view_right_bar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/btn_facebook" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
