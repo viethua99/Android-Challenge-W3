@@ -1,4 +1,4 @@
-package com.thesis.android_challenge_w3.activity
+package com.thesis.android_challenge_w3.activity.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,10 +9,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.thesis.android_challenge_w3.R
+import com.thesis.android_challenge_w3.activity.signin.SignInActivity
 import com.thesis.android_challenge_w3.databinding.ActivityProfileBinding
 import com.thesis.android_challenge_w3.dialog.EditDialog
-import com.thesis.android_challenge_w3.model.ProfileViewModel
-import com.thesis.android_challenge_w3.store.DataStore
+import com.thesis.android_challenge_w3.data.DataStore
+import com.thesis.android_challenge_w3.model.User
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
@@ -23,40 +24,44 @@ class ProfileActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        setupViewModelBinding()
+
+    }
+
+    private fun setupViewModelBinding(){
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
-        setupViewModel()
+        binding.lifecycleOwner = this
+        binding.profileViewModel = viewModel
 
         binding.apply {
-            val user = DataStore.instance.currentUser
+            val user = getUserFromBundle()
             user?.let {
-                viewModel.setFullNameUserProfile(user.fullName)
-                viewModel.setEmailUserProfile(user.email)
-                viewModel.setPhoneNumberUserProfile(user.phoneNumber)
+                viewModel.setupUserProfile(user)
+
             }
+
             tvFullName.setOnClickListener {
                 setupAlertDialog("Edit Full Name", "Enter your full name",tvFullName.text.toString(),object:EditDialog.EditDialogCallback {
                     override fun onConfirmClicked(data: String) {
-                        user?.fullName = data
-                        viewModel.setFullNameUserProfile(data)
+                        viewModel.editFullNameUserProfile(user!!.email,data)
                         showToastMessage(data)
                     }
                 })
             }
             tvEmail.setOnClickListener {
-               setupAlertDialog("Edit E-mail ", "Enter your e-mail",tvEmail.text.toString(),object :EditDialog.EditDialogCallback {
-                   override fun onConfirmClicked(data: String) {
-                       user?.email = data
-                       viewModel.setEmailUserProfile(data)
-                       showToastMessage(data)
+                setupAlertDialog("Edit E-mail ", "Enter your e-mail",tvEmail.text.toString(),object :EditDialog.EditDialogCallback {
+                    override fun onConfirmClicked(data: String) {
+                        viewModel.editEmailUserProfile(user!!.email,data)
+                        showToastMessage(data)
 
-                   }
-               })
+                    }
+                })
             }
             tvPhoneNumber.setOnClickListener {
                 setupAlertDialog("Edit Phone Number ", "Enter your phone number",tvPhoneNumber.text.toString(),object :EditDialog.EditDialogCallback {
                     override fun onConfirmClicked(data: String) {
-                        user?.phoneNumber = data
-                        viewModel.setPhoneNumberUserProfile(data)
+                        viewModel.editPhoneNumberUserProfile(user!!.email,data)
                         showToastMessage(data)
                     }
                 })
@@ -64,20 +69,14 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupViewModel(){
-        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        binding.profileViewModel = viewModel
-        viewModel.user.observe(this , Observer{ user ->
-            binding.tvFullName.text = user.fullName
-            binding.tvUserName.text = user.fullName
-            binding.tvEmail.text = user.email
-            binding.tvPhoneNumber.text = user.phoneNumber
-        })
+    private fun getUserFromBundle() : User? {
+        val bundle = intent.extras
+        bundle?.let {
+            return bundle.getParcelable(SignInActivity.USER_KEY)
+        }
+        return null
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        DataStore.instance.currentUser = null
-    }
+
 
 
     private fun setupAlertDialog(title: String, textHint: String,initData:String,editDialogCallback: EditDialog.EditDialogCallback) {

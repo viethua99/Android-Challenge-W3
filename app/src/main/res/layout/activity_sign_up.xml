@@ -5,7 +5,7 @@
     <data>
         <variable
             name="signUpViewModel"
-            type="com.thesis.android_challenge_w3.model.SignUpViewModel" />
+            type="com.thesis.android_challenge_w3.activity.signup.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

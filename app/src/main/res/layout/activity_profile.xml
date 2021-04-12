@@ -6,7 +6,7 @@
     <data>
         <variable
             name="profileViewModel"
-            type="com.thesis.android_challenge_w3.model.ProfileViewModel" />
+            type="com.thesis.android_challenge_w3.activity.profile.ProfileViewModel" />
     </data>
     <ScrollView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_profile"
-            tools:context=".activity.ProfileActivity">
+            tools:context=".activity.profile.ProfileActivity">
 
             <ImageButton
                 android:id="@+id/btn_skip"

@@ -1,4 +1,4 @@
-package com.thesis.android_challenge_w3.activity
+package com.thesis.android_challenge_w3.activity.signup
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.thesis.android_challenge_w3.R
 import androidx.databinding.DataBindingUtil
 import com.thesis.android_challenge_w3.databinding.ActivitySignUpBinding
-import com.thesis.android_challenge_w3.store.DataStore
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.thesis.android_challenge_w3.model.SignUpViewModel
+import com.thesis.android_challenge_w3.activity.signin.SignInActivity
 
 
 /**
@@ -28,29 +27,31 @@ class SignUpActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        setupViewModelBinding()
+
+    }
+
+    private fun setupViewModelBinding(){
+        viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
-        setupViewModel()
+        binding.lifecycleOwner = this
         binding.signUpViewModel = viewModel
         binding.apply {
             btnSignIn.setOnClickListener {
                 startLoginActivity()
             }
         }
-    }
 
-    private fun setupViewModel(){
-        viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
-        viewModel.isSignUpSucceed.observe(this,
-            Observer<Boolean> {
+        viewModel.isSignUpSucceed.observe(this, Observer {
                 if (it) {
-                    Toast.makeText(this@SignUpActivity, "Sign Up Successful", Toast.LENGTH_SHORT)
-                        .show()
+                    showToastMessage("Sign Up Successful")
                     startLoginActivity()
-                } else {
-                    Toast.makeText(this@SignUpActivity, "Sign Up Failed", Toast.LENGTH_SHORT).show()
-
                 }
             })
+
+        viewModel.errorMessage.observe(this, Observer { message ->
+            Toast.makeText(this@SignUpActivity,message , Toast.LENGTH_SHORT).show()
+        })
 
     }
 
@@ -60,5 +61,9 @@ class SignUpActivity : AppCompatActivity() {
             SignInActivity::class.java
         )
         startActivity(intent)
+    }
+
+    private fun showToastMessage(message:String){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
     }
 }

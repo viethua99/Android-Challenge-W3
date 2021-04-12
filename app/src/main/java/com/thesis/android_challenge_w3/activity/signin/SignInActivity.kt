@@ -1,4 +1,4 @@
-package com.thesis.android_challenge_w3.activity
+package com.thesis.android_challenge_w3.activity.signin
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.thesis.android_challenge_w3.R
+import com.thesis.android_challenge_w3.activity.profile.ProfileActivity
+import com.thesis.android_challenge_w3.activity.signup.SignUpActivity
 import com.thesis.android_challenge_w3.databinding.ActivitySignInBinding
-import com.thesis.android_challenge_w3.model.SignInViewModel
-import com.thesis.android_challenge_w3.store.DataStore
+import com.thesis.android_challenge_w3.model.User
 
 class SignInActivity : AppCompatActivity() {
 
@@ -29,40 +30,42 @@ class SignInActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
-        viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
-        binding.signInViewModel = viewModel
-        setupViewModel()
-        binding.apply {
+        setupViewModelBinding()
 
+    }
+
+    private fun setupViewModelBinding() {
+        viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
+        binding.lifecycleOwner = this
+        binding.signInViewModel = viewModel
+        binding.apply {
             btnSignUp.setOnClickListener {
                 val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
                 startActivity(intent)
             }
 
         }
-    }
 
-    private fun setupViewModel() {
-        viewModel.isSignInSuccess.observe(this, Observer<Boolean> {
-            if (it) {
-                showToast("Sign in Successful")
-                startProfileActivity()
-            } else {
-                showToast("Sign in failed")
-            }
+        viewModel.isSignInSucceed.observe(this, Observer { user ->
+                showToastMessage("Sign in Successful")
+                startProfileActivity(user)
+        })
+
+        viewModel.errorMessage.observe(this, Observer { message ->
+            Toast.makeText(this@SignInActivity, message, Toast.LENGTH_SHORT).show()
         })
     }
-    private fun startProfileActivity() {
+
+    private fun startProfileActivity(user: User) {
         val bundle = Bundle()
-        bundle.putParcelable(USER_KEY, DataStore.instance.currentUser)
+        bundle.putParcelable(USER_KEY,user)
         val intent = Intent(this@SignInActivity, ProfileActivity::class.java)
         intent.putExtras(bundle)
         startActivity(intent)
     }
 
-    private fun showToast(value: String) {
-        Toast.makeText(this@SignInActivity, "" + value, Toast.LENGTH_SHORT).show()
-
+    private fun showToastMessage(value: String) {
+        Toast.makeText(this@SignInActivity, value, Toast.LENGTH_SHORT).show()
     }
 }
