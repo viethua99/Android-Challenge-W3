@@ -1,4 +1,4 @@
-package com.thesis.android_challenge_w3.activity
+package com.thesis.android_challenge_w3.activity.welcome
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.thesis.android_challenge_w3.R
 import com.google.android.material.button.MaterialButton
 import android.widget.TextView
+import com.thesis.android_challenge_w3.activity.signin.SignInActivity
+import com.thesis.android_challenge_w3.activity.signup.SignUpActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var btnStart : MaterialButton
