@@ -14,8 +14,13 @@ class ProfileViewModel : ViewModel() {
         user.value = User()
     }
 
-    fun setupUserProfile(user: User){
-        this.user.postValue(user)
+    fun setupUserProfile(email: String){
+        val user =  dataStore.getUserByEmail(email)
+        user?.let {
+            this.user.value = user
+            this.user.postValue(user)
+        }
+
     }
 
     fun editFullNameUser(email: String, fullName: String) {

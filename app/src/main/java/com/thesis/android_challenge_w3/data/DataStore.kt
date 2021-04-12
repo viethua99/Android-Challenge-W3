@@ -45,6 +45,15 @@ class DataStore private constructor() {
         loginCallback.onFailed("Cannot find any user")
     }
 
+    fun getUserByEmail(email: String): User?{
+        for(user in userList){
+            if(user.email == email){
+                return user
+            }
+        }
+        return null
+    }
+
     fun editUser(email: String, field: Int, value: String) {
         for (user in userList) {
             if (user.email == email) {

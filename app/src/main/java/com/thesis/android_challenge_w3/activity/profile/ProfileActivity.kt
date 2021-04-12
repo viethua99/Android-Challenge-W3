@@ -35,7 +35,7 @@ class ProfileActivity : AppCompatActivity() {
         binding.apply {
             val user = getUserFromBundle()
             user?.let {
-                viewModel.setupUserProfile(user)
+                viewModel.setupUserProfile(user.email)
 
             }
 
