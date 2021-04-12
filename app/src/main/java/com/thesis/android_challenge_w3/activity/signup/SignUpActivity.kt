@@ -31,7 +31,12 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-    private fun setupViewModelBinding(){
+    override fun onStop() {
+        super.onStop()
+        viewModel.clear()
+    }
+
+    private fun setupViewModelBinding() {
         viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
         binding.lifecycleOwner = this
@@ -43,14 +48,18 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         viewModel.isSignUpSucceed.observe(this, Observer {
+            it?.let {
                 if (it) {
                     showToastMessage("Sign Up Successful")
                     startLoginActivity()
                 }
-            })
+            }
+        })
 
         viewModel.errorMessage.observe(this, Observer { message ->
-            Toast.makeText(this@SignUpActivity,message , Toast.LENGTH_SHORT).show()
+            message?.let {
+                Toast.makeText(this@SignUpActivity, message, Toast.LENGTH_SHORT).show()
+            }
         })
 
     }
@@ -63,7 +72,7 @@ class SignUpActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun showToastMessage(message:String){
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+    private fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -2,6 +2,7 @@ package com.thesis.android_challenge_w3.activity.signin
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,7 +32,11 @@ class SignInActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         setupViewModelBinding()
+    }
 
+    override fun onStop() {
+        super.onStop()
+        viewModel.clear()
     }
 
     private fun setupViewModelBinding() {
@@ -48,18 +53,24 @@ class SignInActivity : AppCompatActivity() {
         }
 
         viewModel.isSignInSucceed.observe(this, Observer { user ->
+            user?.let {
                 showToastMessage("Sign in Successful")
                 startProfileActivity(user)
+            }
+
         })
 
         viewModel.errorMessage.observe(this, Observer { message ->
-            showToastMessage(message)
+            message?.let {
+                showToastMessage(message)
+
+            }
         })
     }
 
     private fun startProfileActivity(user: User) {
         val bundle = Bundle()
-        bundle.putParcelable(USER_KEY,user)
+        bundle.putParcelable(USER_KEY, user)
         val intent = Intent(this@SignInActivity, ProfileActivity::class.java)
         intent.putExtras(bundle)
         startActivity(intent)

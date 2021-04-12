@@ -20,6 +20,11 @@ class SignInViewModel : ViewModel() {
         dataStore.login(user.value!!.email,user.value!!.password)
     }
 
+    fun clear(){
+        isSignInSucceed.value = null
+        errorMessage.value = null
+    }
+
     private val loginCallback  = object : DataStore.LoginCallback{
         override fun onSucceed(user: User) {
             this@SignInViewModel.isSignInSucceed.value = user
@@ -29,7 +34,6 @@ class SignInViewModel : ViewModel() {
             errorMessage.value = message
         }
     }
-
 
 
 }

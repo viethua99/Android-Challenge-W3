@@ -13,11 +13,19 @@ class SignUpViewModel : ViewModel() {
     init {
         user.value = User()
     }
+
     fun signUp() {
         val dataStore = DataStore.instance
         dataStore.setSignUpCallback(signUpCallback)
         dataStore.signUp(user.value!!.fullName, user.value!!.email, user.value!!.password)
     }
+
+    fun clear(){
+        isSignUpSucceed.value = null
+        errorMessage.value = null
+    }
+
+
 
     private val signUpCallback  = object : DataStore.SignUpCallback{
         override fun onSucceed() {
