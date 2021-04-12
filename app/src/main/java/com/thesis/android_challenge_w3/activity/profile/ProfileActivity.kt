@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.thesis.android_challenge_w3.R
 import com.thesis.android_challenge_w3.activity.signin.SignInActivity
 import com.thesis.android_challenge_w3.databinding.ActivityProfileBinding
 import com.thesis.android_challenge_w3.dialog.EditDialog
-import com.thesis.android_challenge_w3.data.DataStore
 import com.thesis.android_challenge_w3.model.User
 
 class ProfileActivity : AppCompatActivity() {
@@ -44,7 +42,7 @@ class ProfileActivity : AppCompatActivity() {
             tvFullName.setOnClickListener {
                 setupAlertDialog("Edit Full Name", "Enter your full name",tvFullName.text.toString(),object:EditDialog.EditDialogCallback {
                     override fun onConfirmClicked(data: String) {
-                        viewModel.editFullNameUserProfile(user!!.email,data)
+                        viewModel.editFullNameUser(user!!.email,data)
                         showToastMessage(data)
                     }
                 })
@@ -52,7 +50,7 @@ class ProfileActivity : AppCompatActivity() {
             tvEmail.setOnClickListener {
                 setupAlertDialog("Edit E-mail ", "Enter your e-mail",tvEmail.text.toString(),object :EditDialog.EditDialogCallback {
                     override fun onConfirmClicked(data: String) {
-                        viewModel.editEmailUserProfile(user!!.email,data)
+                        viewModel.editEmailUser(user!!.email,data)
                         showToastMessage(data)
 
                     }
@@ -61,7 +59,7 @@ class ProfileActivity : AppCompatActivity() {
             tvPhoneNumber.setOnClickListener {
                 setupAlertDialog("Edit Phone Number ", "Enter your phone number",tvPhoneNumber.text.toString(),object :EditDialog.EditDialogCallback {
                     override fun onConfirmClicked(data: String) {
-                        viewModel.editPhoneNumberUserProfile(user!!.email,data)
+                        viewModel.editPhoneNumberUser(user!!.email,data)
                         showToastMessage(data)
                     }
                 })

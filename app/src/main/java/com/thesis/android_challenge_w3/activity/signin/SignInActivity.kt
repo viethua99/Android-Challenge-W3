@@ -53,7 +53,7 @@ class SignInActivity : AppCompatActivity() {
         })
 
         viewModel.errorMessage.observe(this, Observer { message ->
-            Toast.makeText(this@SignInActivity, message, Toast.LENGTH_SHORT).show()
+            showToastMessage(message)
         })
     }
 

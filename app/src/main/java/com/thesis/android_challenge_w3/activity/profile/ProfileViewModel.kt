@@ -18,19 +18,19 @@ class ProfileViewModel : ViewModel() {
         this.user.postValue(user)
     }
 
-    fun editFullNameUserProfile(email: String,fullName: String) {
+    fun editFullNameUser(email: String, fullName: String) {
         dataStore.editUser(email,DataStore.FULL_NAME_FIELD,fullName)
         user.value?.fullName = fullName
         user.postValue(user.value)
     }
 
-    fun editEmailUserProfile(oldEmail:String,email: String) {
+    fun editEmailUser(oldEmail:String, email: String) {
         dataStore.editUser(oldEmail,DataStore.EMAIL_FIELD,email)
         user.value?.email = email
         user.postValue(user.value)
     }
 
-    fun editPhoneNumberUserProfile(email: String,phoneNumber: String) {
+    fun editPhoneNumberUser(email: String, phoneNumber: String) {
         dataStore.editUser(email,DataStore.PHONE_NUMBER_FIELD,phoneNumber)
         user.value?.phoneNumber = phoneNumber
         user.postValue(user.value)
