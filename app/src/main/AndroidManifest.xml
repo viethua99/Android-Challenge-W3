@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_app_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidChallengeW3">
-        <activity android:name=".activity.splash.SplashActivity" android:theme="@style/SplashTheme">
+        <activity android:name=".activity.splash.SplashActivity" android:theme="@style/SplashTheme" android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.boarding.BoardingOneActivity"/>
-        <activity android:name=".activity.boarding.BoardingTwoActivity"/>
-        <activity android:name=".activity.boarding.BoardingThreeActivity"/>
-        <activity android:name=".activity.welcome.WelcomeActivity"/>
+        <activity android:name=".activity.boarding.BoardingOneActivity" android:noHistory="true" />
+        <activity android:name=".activity.boarding.BoardingTwoActivity" android:noHistory="true"/>
+        <activity android:name=".activity.boarding.BoardingThreeActivity" android:noHistory="true"/>
+        <activity android:name=".activity.welcome.WelcomeActivity" android:noHistory="true" />
 
-        <activity android:name=".activity.signup.SignUpActivity"/>
+        <activity android:name=".activity.signup.SignUpActivity" android:noHistory="true" />
         <activity android:name=".activity.signin.SignInActivity"/>
         <activity android:name=".activity.profile.ProfileActivity"/>
     </application>
